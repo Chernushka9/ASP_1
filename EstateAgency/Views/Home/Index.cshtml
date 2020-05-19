@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Estate Agency";
+}
+<div class="loading" align="center">
+    <img src="~/Content/loading.gif" alt="" />
+</div>
+
+<script type="text/javascript">
+    var modal, loading;
+    function ShowProgress() {
+        modal = document.createElement("DIV");
+        modal.className = "modal";
+        document.body.appendChild(modal);
+        loading = document.getElementsByClassName("loading")[0];
+        loading.style.display = "block";
+        var top = Math.max(window.innerHeight / 5 - loading.offsetHeight / 5, 0);
+        var left = Math.max(window.innerWidth / 5 - loading.offsetWidth / 5, 0);
+        loading.style.top = top + "px";
+        loading.style.left = left + "px";
+    };
+    ShowProgress();
+</script>
+
+<script type="text/javascript">
+    window.onload = function () {
+        setTimeout(function () {
+            document.body.removeChild(modal);
+            loading.style.display = "none";
+        }, 5500);
+    };
+</script>
